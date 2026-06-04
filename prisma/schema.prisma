@@ -1,0 +1,174 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String            @id @default(cuid())
+  email           String            @unique
+  name            String
+  passwordHash    String
+  role            String            @default("user")
+  phone           String?
+  avatar          String?
+  status          String            @default("active")
+  canTrackVehicle Boolean           @default(false)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  bids            Bid[]
+  inquiries       Inquiry[]
+  payments        Payment[]
+  trackings       VehicleTracking[]
+
+  @@map("users")
+}
+
+model Vehicle {
+  id              String            @id @default(cuid())
+  stockId         String            @unique
+  make            String
+  model           String
+  year            Int
+  price           Float
+  priceCif        Float?
+  currency        String            @default("USD")
+  mileage         Int?
+  fuelType        String
+  transmission    String
+  bodyType        String?
+  color           String
+  driveType       String?
+  engineSize      Float?
+  engineType      String?
+  location        String
+  destinationSlug String?
+  condition       String
+  auctionGrade    String?
+  images          String
+  description     String
+  features        String
+  specifications  String?
+  status          String            @default("available")
+  featured        Boolean           @default(false)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  auctionHouse    String?
+  lotNumber       String?
+  auctionDate     String?
+  chassis         String?
+  source          String?
+  inquiries       Inquiry[]
+  trackings       VehicleTracking[]
+
+  @@map("vehicles")
+}
+
+model AuctionListing {
+  id           String    @id @default(cuid())
+  lot          String    @unique
+  make         String
+  model        String
+  year         Int
+  auction      String
+  date         String
+  mileage      Int
+  engine       String
+  startPrice   Float
+  soldPrice    Float
+  image        String
+  chassis      String?
+  grade        String?
+  createdAt    DateTime  @default(now())
+  status       String    @default("draft")
+  startTime    DateTime?
+  endTime      DateTime?
+  winningBidId String?   @unique
+  winnerUserId String?
+  finalPrice   Float?
+  winningBid   Bid?      @relation("WinningBid", fields: [winningBidId], references: [id])
+  bids         Bid[]
+
+  @@map("auction_listings")
+}
+
+model Inquiry {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  vehicleId String?
+  subject   String?
+  message   String
+  status    String   @default("new")
+  createdAt DateTime @default(now())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  vehicle   Vehicle? @relation(fields: [vehicleId], references: [id])
+
+  @@map("inquiries")
+}
+
+model Bid {
+  id                String          @id @default(cuid())
+  amount            Float
+  auctionId         String
+  userId            String
+  createdAt         DateTime        @default(now())
+  winningForAuction AuctionListing? @relation("WinningBid")
+  auction           AuctionListing  @relation(fields: [auctionId], references: [id], onDelete: Cascade)
+  user              User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("bids")
+}
+
+model Payment {
+  id        String   @id @default(cuid())
+  amount    Float
+  currency  String   @default("USD")
+  status    String
+  vehicleId String?
+  userId    String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("payments")
+}
+
+model VehicleTracking {
+  id        String   @id @default(cuid())
+  status    String
+  location  String?
+  updates   String?
+  vehicleId String
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  vehicle   Vehicle  @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+
+  @@unique([vehicleId, userId])
+  @@map("vehicle_trackings")
+}
+
+model JapanSyncLog {
+  id            String   @id @default(cuid())
+  lastSyncAt    DateTime @default(now())
+  sourceName    String
+  importedCount Int      @default(0)
+  error         String?
+
+  @@map("japan_sync_logs")
+}
+
+model Content {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt
+
+  @@map("content")
+}

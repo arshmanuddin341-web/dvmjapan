@@ -1,0 +1,13 @@
+node_modules
+.next
+.vercel
+.wwebjs_auth
+.wwebjs_cache
+.git
+scripts/scraped_data
+public/temp
+dist
+*.log
+deploy_dvm.tar.gz
+deploy_dvm.zip
+temp_*.jpg
