@@ -112,7 +112,7 @@ async function scrapeVehicleDetails(url: string) {
         // --- Stock ID and Chassis ---
         const topBadgeText = $('span.badge.bg-danger').text();
         const stockMatch = topBadgeText.match(/Stock No:\s*(\d+)/);
-        if (stockMatch) details.stockId = `DVM-${stockMatch[1]}`;
+        if (stockMatch) details.stockId = stockMatch[1];
 
         const chassisText = $('span.text-muted, span').filter((i, el) => $(el).text().includes('Chassis No:')).text();
         const chassisMatch = chassisText.match(/Chassis No:\s*([^\s<]+)/);
@@ -199,29 +199,35 @@ async function scrapeVehicleDetails(url: string) {
         const images: string[] = [];
 
         // Target specific areas for vehicle photos
-        // Target specific areas for vehicle photos ONLY
         const selectors = [
             '#full-gallery .carousel-item img',
             '.vehicle-thumb-item img',
             '#vehicleThumbnailGrid img',
             '.vehicle-gallery img',
-            // Removed broad '.carousel img' which might grab other sliders
+            '.carousel img'
         ];
 
         selectors.forEach(sel => {
             $(sel).each((i, el) => {
                 const src = $(el).attr('src') || $(el).attr('data-src') || '';
-                // Filter out small icons or related item images
-                if (src && !src.includes('placeholder') && !src.includes('logo') && !src.includes('icon') && !src.includes('avatar')) {
-                    // Check if it looks like a vehicle image (usually has 'vehicle' or 'cars' or unique ID in it)
+                if (src && !src.includes('placeholder') && !src.includes('logo') && !src.includes('icon')) {
                     const fullUrl = src.startsWith('http') ? src : BASE_URL + src;
                     if (!images.includes(fullUrl)) images.push(fullUrl);
                 }
             });
         });
 
-        // Limit images to avoid bloat (max 15 high-quality images is usually enough)
-        details.images = images.slice(0, 15);
+        // Final fallback: any large-ish image in the main content area
+        if (images.length < 5) {
+            $('main img, .content img').each((i, el) => {
+                const src = $(el).attr('src') || $(el).attr('data-src') || '';
+                if (src && !src.includes('logo') && !src.includes('icon') && src.length > 20) {
+                    const fullUrl = src.startsWith('http') ? src : BASE_URL + src;
+                    if (!images.includes(fullUrl)) images.push(fullUrl);
+                }
+            });
+        }
+        details.images = images;
 
         // --- Features ---
         const features: string[] = [];

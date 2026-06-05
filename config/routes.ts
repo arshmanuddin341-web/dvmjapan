@@ -6,7 +6,7 @@
 export const routes = {
   home: "/",
   inventory: "/inventory",
-  vehicleDetail: (id: string) => `/vehicles/${id}`,
+  vehicleDetail: (id: string) => `/inventory/${id}`,
   destinations: "/destinations",
   countryDetail: (country: string) => `/destinations/${country}`,
   about: "/about",

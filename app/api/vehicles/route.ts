@@ -8,7 +8,13 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 function buildWhere(searchParams: URLSearchParams): Prisma.VehicleWhereInput {
-  const where: Prisma.VehicleWhereInput = { status: "available" };
+  const where: Prisma.VehicleWhereInput = {};
+  // Optional: const status = searchParams.get("status") || "available";
+  // where.status = { in: ["available", "Available", "Sold", "sold"] }; 
+  // For now, let's just show all to fix the empty display issue.
+  const status = searchParams.get("status");
+  if (status) where.status = status;
+
   const q = searchParams.get("q");
   if (q) {
     const terms = q.toLowerCase().split(/\s+/).filter(Boolean);

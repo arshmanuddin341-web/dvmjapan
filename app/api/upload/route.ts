@@ -3,6 +3,12 @@ import { writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { v4 as uuidv4 } from "uuid";
 import { getAuthFromRequest, verifyToken } from "@/lib/auth";
+export const dynamic = 'force-dynamic';
+export const api = {
+    bodyParser: {
+        sizeLimit: '10mb',
+    },
+};
 
 export async function POST(req: NextRequest) {
     try {

@@ -33,31 +33,40 @@ export default function ImageUpload({
         setError(null);
         setUploading(true);
 
+        const newUrls: string[] = [];
+        const token = getToken();
+
         try {
-            const formData = new FormData();
             for (let i = 0; i < files.length; i++) {
+                const formData = new FormData();
                 formData.append("file", files[i]);
+
+                const res = await fetch("/api/upload", {
+                    method: "POST",
+                    headers: {
+                        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+                    },
+                    body: formData,
+                });
+
+                if (!res.ok) {
+                    const data = await res.json().catch(() => ({}));
+                    throw new Error(data.error || `Failed to upload image ${i + 1}`);
+                }
+
+                const { urls } = await res.json();
+                if (urls && urls.length > 0) {
+                    newUrls.push(urls[0]);
+                }
             }
-
-            const token = getToken();
-            const res = await fetch("/api/upload", {
-                method: "POST",
-                headers: {
-                    ...(token ? { Authorization: `Bearer ${token}` } : {}),
-                },
-                body: formData,
-            });
-
-            if (!res.ok) {
-                const data = await res.json().catch(() => ({}));
-                throw new Error(data.error || "Upload failed");
-            }
-
-            const { urls } = await res.json();
-            onUpload([...value, ...urls]);
+            onUpload([...value, ...newUrls]);
         } catch (err: any) {
             console.error("Upload error:", err);
             setError(err.message || "Failed to upload images. Please try again.");
+            // If some images were uploaded before error, we still add them
+            if (newUrls.length > 0) {
+                onUpload([...value, ...newUrls]);
+            }
         } finally {
             setUploading(false);
             if (fileInputRef.current) fileInputRef.current.value = "";

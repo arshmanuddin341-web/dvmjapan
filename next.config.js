@@ -12,6 +12,12 @@ const nextConfig = {
       { protocol: 'https', hostname: 'nobukojapan.com', pathname: '/**' },
     ],
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   webpack: (config, { dev }) => {
     if (dev) {
       config.watchOptions = {

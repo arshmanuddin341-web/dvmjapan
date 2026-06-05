@@ -1,0 +1,185 @@
+﻿Scraping 7 MDK listings...
+
+Fetching https://mdkjapan.com/used-cars/123521 ... Γ£ô Mazda Cx-5 2017
+Fetching https://mdkjapan.com/used-cars/123565 ... Γ£ô Mazda Cx-5 2017
+Fetching https://mdkjapan.com/used-cars/123263 ... Γ£ô Isuzu Elf Truck
+Fetching https://mdkjapan.com/used-cars/123447 ... Γ£ô Toyota Raize 2025
+Fetching https://mdkjapan.com/used-cars/123417 ... Γ£ô Honda Vezel 2015
+Fetching https://mdkjapan.com/used-cars/124030 ... Γ£ô Toyota Aqua 2017
+Fetching https://mdkjapan.com/used-cars/123520 ... Γ£ô Honda Cr-v 2019
+
+=== EXTRACTED DATA ===
+[
+  {
+    "chassis": "KF2P-105849",
+    "title": "Mazda Cx-5 2017",
+    "make": "Mazda",
+    "model": "Cx-5",
+    "year": "2017",
+    "color": null,
+    "mileage": "218000",
+    "transmission": null,
+    "fuel": null,
+    "engine": null,
+    "bodyType": null,
+    "price": "4",
+    "images": [
+      "https://resources.mdkjapan.com/202614051034191.jpg",
+      "https://mdkjapan.com/assets/images/loader.webp",
+      "https://mdkjapan.com/assets/images/mega-menu/services/auction.webp",
+      "https://mdkjapan.com/assets/images/mega-menu/services/how-to-buy.webp",
+      "https://www.mdkjapan.org/images/cars/306487/306487-601-1.JPG",
+      "https://mdkjapan.com/assets/images/pages/vehicle-details/Verified-Section-Picture.webp",
+      "https://mdkjapan.com/assets/images/pages/vehicle-details/verified.webp"
+    ],
+    "rawSpecs": {}
+  },
+  {
+    "chassis": "KF2P-101763",
+    "title": "Mazda Cx-5 2017",
+    "make": "Mazda",
+    "model": "Cx-5",
+    "year": "2017",
+    "color": null,
+    "mileage": "257000",
+    "transmission": null,
+    "fuel": null,
+    "engine": null,
+    "bodyType": null,
+    "price": "4",
+    "images": [
+      "https://resources.mdkjapan.com/202615051204041.JPG",
+      "https://mdkjapan.com/assets/images/loader.webp",
+      "https://mdkjapan.com/assets/images/mega-menu/services/auction.webp",
+      "https://mdkjapan.com/assets/images/mega-menu/services/how-to-buy.webp",
+      "https://www.mdkjapan.org/images/cars/306487/306487-601-1.JPG",
+      "https://mdkjapan.com/assets/images/pages/vehicle-details/Verified-Section-Picture.webp",
+      "https://mdkjapan.com/assets/images/pages/vehicle-details/verified.webp"
+    ],
+    "rawSpecs": {}
+  },
+  {
+    "chassis": "NKR81-7070306",
+    "title": "Isuzu Elf Truck",
+    "make": "Isuzu",
+    "model": "Elf",
+    "year": null,
+    "color": null,
+    "mileage": "404000",
+    "transmission": null,
+    "fuel": null,
+    "engine": null,
+    "bodyType": null,
+    "price": "4",
+    "images": [
+      "http://www.mdkjapan.org/images/cars/306487/306487-601-1.JPG",
+      "https://mdkjapan.com/assets/images/loader.webp",
+      "https://mdkjapan.com/assets/images/mega-menu/services/auction.webp",
+      "https://mdkjapan.com/assets/images/mega-menu/services/how-to-buy.webp",
+      "https://resources.mdkjapan.com/NKR81-7070306_1779352722_image_1.JPG",
+      "https://resources.mdkjapan.com/NKR81-7070306_1779352722_image_2.JPG",
+      "https://resources.mdkjapan.com/NKR81-7070306_1779352723_image_3.JPG",
+      "https://resources.mdkjapan.com/NKR81-7070306_1779352723_image_4.JPG",
+      "https://resources.mdkjapan.com/NKR81-7070306_1779352724_image_5.JPG",
+      "https://resources.mdkjapan.com/NKR81-7070306_1779352724_image_6.JPG",
+      "https://resources.mdkjapan.com/NKR81-7070306_1779352724_image_7.JPG",
+      "https://resources.mdkjapan.com/NKR81-7070306_1779352724_image_8.JPG",
+      "https://resources.mdkjapan.com/NKR81-7070306_1779352724_image_9.JPG",
+      "https://resources.mdkjapan.com/NKR81-7070306_1779352724_image_10.JPG",
+      "https://resources.mdkjapan.com/NKR81-7070306_1779352724_image_11.JPG"
+    ],
+    "rawSpecs": {}
+  },
+  {
+    "chassis": "A202A-0107855",
+    "title": "Toyota Raize 2025",
+    "make": "Toyota",
+    "model": "Raize",
+    "year": "2025",
+    "color": null,
+    "mileage": "8000",
+    "transmission": null,
+    "fuel": null,
+    "engine": null,
+    "bodyType": null,
+    "price": "4",
+    "images": [
+      "https://resources.mdkjapan.com/202612051707041.JPG",
+      "https://mdkjapan.com/assets/images/loader.webp",
+      "https://mdkjapan.com/assets/images/mega-menu/services/auction.webp",
+      "https://mdkjapan.com/assets/images/mega-menu/services/how-to-buy.webp",
+      "https://mdkjapan.com/assets/images/pages/vehicle-details/Verified-Section-Picture.webp",
+      "https://mdkjapan.com/assets/images/pages/vehicle-details/verified.webp"
+    ],
+    "rawSpecs": {}
+  },
+  {
+    "chassis": "RU3-1109810",
+    "title": "Honda Vezel 2015",
+    "make": "Honda",
+    "model": "Vezel",
+    "year": "2015",
+    "color": null,
+    "mileage": "88000",
+    "transmission": null,
+    "fuel": null,
+    "engine": null,
+    "bodyType": null,
+    "price": "4",
+    "images": [
+      "http://www.mdkjapan.org/images/cars/306487/306487-601-1.JPG",
+      "https://mdkjapan.com/assets/images/loader.webp",
+      "https://mdkjapan.com/assets/images/mega-menu/services/auction.webp",
+      "https://mdkjapan.com/assets/images/mega-menu/services/how-to-buy.webp",
+      "https://mdkjapan.com/assets/images/pages/vehicle-details/Verified-Section-Picture.webp",
+      "https://mdkjapan.com/assets/images/pages/vehicle-details/verified.webp"
+    ],
+    "rawSpecs": {}
+  },
+  {
+    "chassis": "NHP10-6578747",
+    "title": "Toyota Aqua 2017",
+    "make": "Toyota",
+    "model": "Aqua",
+    "year": "2017",
+    "color": null,
+    "mileage": "102000",
+    "transmission": null,
+    "fuel": null,
+    "engine": null,
+    "bodyType": null,
+    "price": "4",
+    "images": [
+      "https://resources.mdkjapan.com/202603061023501.jpg",
+      "https://mdkjapan.com/assets/images/loader.webp",
+      "https://mdkjapan.com/assets/images/mega-menu/services/auction.webp",
+      "https://mdkjapan.com/assets/images/mega-menu/services/how-to-buy.webp",
+      "https://mdkjapan.com/assets/images/pages/vehicle-details/Verified-Section-Picture.webp",
+      "https://mdkjapan.com/assets/images/pages/vehicle-details/verified.webp"
+    ],
+    "rawSpecs": {}
+  },
+  {
+    "chassis": "RW1-1001229",
+    "title": "Honda Cr-v 2019",
+    "make": "Honda",
+    "model": "Cr-v",
+    "year": "2019",
+    "color": null,
+    "mileage": "88000",
+    "transmission": null,
+    "fuel": null,
+    "engine": null,
+    "bodyType": null,
+    "price": "4",
+    "images": [
+      "http://www.mdkjapan.org/images/cars/306487/306487-601-1.JPG",
+      "https://mdkjapan.com/assets/images/loader.webp",
+      "https://mdkjapan.com/assets/images/mega-menu/services/auction.webp",
+      "https://mdkjapan.com/assets/images/mega-menu/services/how-to-buy.webp",
+      "https://mdkjapan.com/assets/images/pages/vehicle-details/Verified-Section-Picture.webp",
+      "https://mdkjapan.com/assets/images/pages/vehicle-details/verified.webp"
+    ],
+    "rawSpecs": {}
+  }
+]
